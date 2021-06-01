@@ -1,54 +1,66 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Criticize - Machine Learning
 
-## 🚀 Quick start
+Front-end aspect of the project.
 
-1.  **Create a Gatsby site.**
+## About The Project
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+This project - `Criticize` - aims to complement humans’ critical thinking abilities by harnessing machine learning algorithms with natural language processing (NLP) techniques. This algorithm will be able to read an article, and generate critical thinking questions based on the content or context of the article.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+### Built With
 
-2.  **Start developing.**
+* [gatsby.js](https://www.gatsbyjs.com/) - React.js web framework
 
-    Navigate into your new site’s directory and start it up.
+## Getting Started
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### Prerequisites
 
-3.  **Open the code and start customizing!**
+* [node.js and npm](https://nodejs.org/en/)
+* [Gatsby CLI](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)
 
-    Your site is now running at http://localhost:8000!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+### Installation
 
-4.  **Learn more**
+1. Install dependencies on your local machine:
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```
+git clone https://github.com/sebbycake/unstynt.git
+npm install
+```
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Usage
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Run the code on node server:
+```
+gatsby develop
+```
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Deployment
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Follow the steps below to deploy gatsby app:
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. Netlify
 
-## 🚀 Quick start (Gatsby Cloud)
+```
+npm install -g netlify-cli
+cd <gatsby_project_name>
+gatsby build
+```
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+Finally, to deploy, run:
+```
+netlify deploy
+```
+You will be prompted to provide a publish directory. Enter `public`, as Gatsby will generate the production site in the `public` folder.
+
+
+After viewing the draft URL given to you and everything is running smoothly, run:
+```
+netlify deploy --prod
+```
+
+
+
+## License
+
+This project is licensed under the MIT License.
