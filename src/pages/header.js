@@ -37,7 +37,7 @@ const Header = () => {
                     <Link to="/" onClick={handleNavBar}>Daily News Headlines</Link>
                 </li>
                 <li>
-                    <Link to="/" onClick={handleNavBar}>About Us</Link>
+                    <Link to="/" onClick={handleNavBar}>About</Link>
                 </li>
             </ul>
 

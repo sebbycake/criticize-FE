@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura&family=Oxygen&display=swap');
 
 .logo {
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Handlee', cursive;
-    margin-left: 20px;
+    margin-left: 80px;
 }
 
 .logo a {
-    color: #324e7b;
+    color: #660077;
     text-decoration: none;
 }
 
 .logo a:hover {
-    color: darkblue;
+    opacity: 0.8;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 12vh;
+    min-height: 16vh;
     background-color: #fff;
 }
 
@@ -35,21 +35,21 @@ nav {
 }
 
 .nav-links a {
-    color: #666666;
+    color: #505050;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Oxygen', sans-serif;
     letter-spacing: 2px;
 }
 
 .nav-links a:hover {
-    color: darkblue;  
+    color: #660077;  
 }
 
 .nav-links a:after {
     display: block;
     content: '';
-    border-bottom: solid 3px darkblue;  
+    border-bottom: solid 3px #660077;  
     transform: scaleX(0);  
     transition: transform 250ms ease-in-out;
 }
@@ -64,6 +64,8 @@ nav {
     .logo {
         position: absolute;
         left: 2px;
+        margin-left: 20px;
+        font-size: 12px;
     }
 
     .burger {
@@ -79,6 +81,10 @@ nav {
         background-color: #666666;
         margin: 5px;
         transition: all 0.5s ease;
+    }
+
+    .nav {
+        min-height: 12vh;
     }
 
     .nav-links {

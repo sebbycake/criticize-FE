@@ -23,7 +23,7 @@ This project - `Criticize` - aims to complement humans’ critical thinking abil
 1. Install dependencies on your local machine:
 
 ```
-git clone https://github.com/sebbycake/unstynt.git
+git clone https://github.com/sebbycake/criticize-FE.git
 npm install
 ```
 

@@ -1,0 +1,45 @@
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-container {
+    margin-top: 6px;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #fff;
+    color: #660077;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 2px solid #660077;
+    cursor: pointer;
+    font-size: 18px;
+}
+  
+.submit-btn:hover {
+    background-color: #660077;
+    color: #fff;
+}
+
+
+@media (min-width:468px) {
+    
+    .form-container {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+}

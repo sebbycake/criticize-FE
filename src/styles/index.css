@@ -1,0 +1,32 @@
+.index-header {
+    color: #665df5;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.index-section {
+    margin-left: 20px;
+    width: 80%;
+}
+
+.index-content {
+    font-family: Muli,sans-serif;
+    font-size: 16px;
+    color: #505050;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+}
+
+
+@media (min-width: 468px) {
+
+    
+    .index-section {
+        margin-left: 80px;
+        width: 80%;
+    }
+    
+    .index-content {
+        font-size: 16px;
+    }
+}
