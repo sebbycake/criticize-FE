@@ -16,6 +16,7 @@
   },
   "license": "0BSD",
   "dependencies": {
+    "axios": "^0.21.1",
     "gatsby": "^3.4.1",
     "gatsby-plugin-react-helmet": "^4.6.0",
     "react": "^17.0.1",

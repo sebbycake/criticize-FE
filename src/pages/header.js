@@ -25,11 +25,14 @@ const Header = () => {
     return (
         // <!-- navigation bar -->
         <nav>
-            <div class="logo">
+            <div className="logo">
                 <h1><Link to="/">Critical Thinking Machine</Link></h1>
             </div>
 
-            <ul class="nav-links">
+            <ul className="nav-links">
+                <li>
+                    <Link to="/question" onClick={handleNavBar}>Question</Link>
+                </li>
                 <li>
                     <Link to="/" onClick={handleNavBar}>Saved</Link>
                 </li>
@@ -37,14 +40,14 @@ const Header = () => {
                     <Link to="/" onClick={handleNavBar}>Daily News Headlines</Link>
                 </li>
                 <li>
-                    <Link to="/" onClick={handleNavBar}>About</Link>
+                    <Link to="/about" onClick={handleNavBar}>About</Link>
                 </li>
             </ul>
 
-            <div class={`burger + ${isToggle}`} onClick={handleNavBar}>
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+            <div className={`burger + ${isToggle}`} onClick={handleNavBar}>
+                <div className="line1"></div>
+                <div className="line2"></div>
+                <div className="line3"></div>
             </div>
         </nav>
     )

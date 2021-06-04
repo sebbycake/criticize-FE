@@ -2,5 +2,5 @@ module.exports = {
   siteMetadata: {
     title: "criticize-fe",
   },
-  plugins: [`gatsby-plugin-react-helmet`]
+  plugins: [`gatsby-plugin-react-helmet`, `axios`]
 };

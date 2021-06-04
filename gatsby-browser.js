@@ -1,3 +1,5 @@
 import "./src/styles/index.css"
 import "./src/styles/nav.css"
 import "./src/styles/form.css"
+import "./src/styles/loading.css"
+import "./src/styles/questions.css"
