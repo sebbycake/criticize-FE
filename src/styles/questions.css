@@ -10,6 +10,14 @@
     font-size: 18px;
 }
 
+.bookmark-btn {
+    float: right;
+    cursor: pointer;
+    position: relative;
+    top: -18px;
+    left: 3px;
+}
+
 
 @media (min-width: 468px) {
 
