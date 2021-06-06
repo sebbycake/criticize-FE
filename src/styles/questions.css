@@ -31,6 +31,29 @@
     opacity: 0.7;
 }
 
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.remove-btn {
+    width: 80%;
+    background-color: #fff;
+    color: #660077;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 2px solid #660077;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.remove-btn:hover {
+    background-color: #660077;
+    color: #fff;
+}
+
 
 @media (min-width: 468px) {
 
@@ -46,6 +69,10 @@
         position: relative;
         top: 2px;
         right: -14px;
+    }
+
+    .remove-btn {
+        width: 30%;
     }
     
 

@@ -4,16 +4,28 @@ import BookmarkBorderRoundedIcon from '@material-ui/icons/BookmarkBorderRounded'
 
 const QuestionCard = ({ question }) => {
 
-    const bookmarkQuestion = () => {
-
+    const bookmarkQuestion = (qn) => {
+        const arr = JSON.parse(localStorage.getItem('qnList'))
+        if (arr === null) {
+            const arrCopy = []
+            arrCopy.push(qn)
+            localStorage.setItem("qnList", JSON.stringify(arrCopy))
+        } else {
+            // clone the arr from LS
+            const arrCopy = [...arr]
+            arrCopy.push(qn)
+            localStorage.setItem("qnList", JSON.stringify(arrCopy))
+        }
     }
 
     const title = (text) => text[0].toUpperCase() + text.substring(1)
 
+    const titledQuestion = title(question)
+
     return (
         <div className="question-card">
-            <p>{title(question)}</p>
-            <div className="bookmark-btn" onClick={bookmarkQuestion}>
+            <p>{titledQuestion}</p>
+            <div className="bookmark-btn" onClick={ () => bookmarkQuestion(titledQuestion) }>
                 <BookmarkBorderRoundedIcon style={{ color: "yellow" }} />
             </div>
         </div>
