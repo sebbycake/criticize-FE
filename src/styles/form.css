@@ -10,10 +10,19 @@ textarea {
     overflow: auto;
     box-sizing: border-box;
     outline: none;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
 }
 
+textarea:focus {
+    box-shadow: 0 0 5px rgba(102, 93, 245, 0.7);
+    border: 2px solid rgba(102, 93, 245, 0.7);
+  }
+
 .form-container {
-    margin-top: 6px;
+    margin-top: 20px;
     border-radius: 5px;
 }
 
@@ -40,6 +49,7 @@ textarea {
     .form-container {
         width: 50%;
         margin: 0 auto;
+        margin-top: 30px;
     }
 
 }

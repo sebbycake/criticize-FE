@@ -1,26 +1,20 @@
 import React from "react"
 import BookmarkBorderRoundedIcon from '@material-ui/icons/BookmarkBorderRounded';
+// import green from "@material-ui/core/colors/green";
 
 const QuestionCard = ({ question }) => {
 
-    let questions = {'questions':[]}
+    const bookmarkQuestion = () => {
 
-    localStorage.setItem('qnList', JSON.stringify(questions))
-
-    const bookmarkQuestion = (title) => {
-        // retrieve the list
-        const qnArray = JSON.parse(localStorage.getItem('qnList')).questions
-        // then push to the list
-        qnArray.push(title)
-        questions = {'questions': qnArray}
-        localStorage.setItem('qnList', JSON.stringify(questions))
     }
+
+    const title = (text) => text[0].toUpperCase() + text.substring(1)
 
     return (
         <div className="question-card">
-            <p>{question}</p>
-            <div className="bookmark-btn" onClick={ () => bookmarkQuestion({question}) }>
-                <BookmarkBorderRoundedIcon />
+            <p>{title(question)}</p>
+            <div className="bookmark-btn" onClick={bookmarkQuestion}>
+                <BookmarkBorderRoundedIcon style={{ color: "yellow" }} />
             </div>
         </div>
     )

@@ -5,17 +5,6 @@ import QuestionCard from "../components/question_card"
 
 const SavedQuestions = () => {
 
-    // Retrieve the object from storage
-    const retrievedObject = localStorage.getItem('qnList');
-
-    const qnArray = JSON.parse(retrievedObject).questions
-
-    console.log(qnArray)
-
-    const qnList = qnArray.map(
-        qn => <QuestionCard question={qn}/>
-    )
-
   return (
     <Layout>
 
@@ -28,9 +17,6 @@ const SavedQuestions = () => {
         <p className="index-content">Your Saved Questions</p>
       </section>
 
-      <div>
-          {qnList}
-      </div>
 
     </Layout>
   )
