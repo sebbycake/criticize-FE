@@ -1,4 +1,4 @@
-# Criticize - Machine Learning
+# Criticize - Front-end
 
 Front-end aspect of the project.
 

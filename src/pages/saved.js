@@ -44,7 +44,6 @@ const SavedQuestions = () => {
         }
       </div>
 
-
     </Layout>
   )
 
