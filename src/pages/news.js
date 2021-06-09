@@ -7,20 +7,30 @@ import Article from "../components/article"
 const TopNews = () => {
 
     const [data, setData] = useState([])
+    const [isCached, setIsCached] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const axios = require('axios')
 
     const fetchData = () => axios.get('http://127.0.0.1:7000/v1/articles')
         .then((response) => {
-            setData(response.data.channelnewsasia)
-            console.log(response.data)
+            const json = response.data.channelnewsasia
+            setData(json)
+            sessionStorage.setItem("article-list", JSON.stringify(json))
             setIsLoading(false)
+            setIsCached(true)
         }, (error) => {
             console.log(error);
         });
 
     useEffect(() => {
-        fetchData();
+        const sessionData = sessionStorage.getItem("article-list")
+        if (sessionData) {
+            setIsCached(true)
+            setData(JSON.parse(sessionData))
+        } else {
+            setIsCached(false)
+            fetchData()
+        }
     }, []);
 
     const articleList = data.filter(article => article.content != "No text available").map(article =>
@@ -42,7 +52,7 @@ const TopNews = () => {
             </section>
 
             {
-                isLoading
+                isLoading && !isCached
                     ?
                     <Loading />
                     :

@@ -23,7 +23,56 @@ const NewsSummary = ({ location }) => {
 
     useEffect(() => {
         fetchData();
+        console.log("fetching. . .")
     }, []);
+
+    const toggleFullArticle = () => {
+        createAllParaElements()
+        const newsDiv = document.getElementsByClassName("full-article-container")[0]
+        const btn = document.getElementsByClassName("submit-btn")[0]
+        if (btn.innerHTML === "View Full Article") {
+            btn.innerHTML = "Close Article"
+        } else {
+            btn.innerHTML = "View Full Article"
+        }
+        newsDiv.classList.toggle("hide")
+        window.scrollTo(300, 600)
+    }
+
+    const splitNewsContent = () => {
+        const newsArray = location.state.newsContent.split(". ")
+        let combinedArray = []
+        // for every 3 items, i want to concatenate 3, then put the text inside a  <p> tag
+        const lastIndex = newsArray.length - 1
+        let count = 1
+        let concatString = ""
+        for (let i = 0; i < newsArray.length; i++) {
+            if (i === lastIndex) {
+                concatString += " " + newsArray[i]
+            } else {
+                concatString += " " + newsArray[i] + "."
+            }
+            if (count % 3 === 0) {
+                combinedArray.push(concatString)
+                // reset concatenated string
+                concatString = ""
+            } else if (i === lastIndex) {
+                combinedArray.push(concatString)
+            }
+            count++
+        }
+        return combinedArray
+    }
+
+    const createAllParaElements = () => {
+        const combinedText = splitNewsContent()
+        const div = document.getElementsByClassName("full-article-container")[0]
+        for (let i = 0; i < combinedText.length; i++) {
+            const para = document.createElement('p')
+            para.innerHTML = combinedText[i] + '<br/><br/>'
+            div.appendChild(para)
+        }
+    }
 
     return (
         <Layout>
@@ -43,7 +92,9 @@ const NewsSummary = ({ location }) => {
                     :
                     <section className="article-detail">
                         <h1 className="article-title">{location.state.newsTitle}</h1>
-                        <p className="article-content">{data.summary_text}</p>
+                        <p className="article-content">{data.summary_text}</p><br />
+                        <button className="submit-btn" onClick={toggleFullArticle}>View Full Article</button>
+                        <div className="full-article-container article-content hide"></div>
                     </section>
             }
 
