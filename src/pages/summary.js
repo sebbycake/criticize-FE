@@ -23,27 +23,33 @@ const NewsSummary = ({ location }) => {
 
     useEffect(() => {
         fetchData();
-        console.log("fetching. . .")
     }, []);
 
     const toggleFullArticle = () => {
-        createAllParaElements()
-        const newsDiv = document.getElementsByClassName("full-article-container")[0]
+        const newsDiv = document.getElementById("full-article-container")
         const btn = document.getElementsByClassName("submit-btn")[0]
         if (btn.innerHTML === "View Full Article") {
             btn.innerHTML = "Close Article"
         } else {
             btn.innerHTML = "View Full Article"
         }
+        if (newsDiv.childElementCount === 0) {
+            createAllParaElements()
+        }
         newsDiv.classList.toggle("hide")
-        window.scrollTo(300, 600)
+        window.scrollTo(300, 450)
     }
 
     const splitNewsContent = () => {
         const newsArray = location.state.newsContent.split(". ")
+        console.log(newsArray)
+        const lastIndex = newsArray.length - 1
+        if (newsArray[lastIndex] === " Download our app or subscribe to our Telegram channel \
+        for the latest updates on the coronavirus outbreak: https://cna.asia/telegram") {
+            newsArray.pop()
+        }
         let combinedArray = []
         // for every 3 items, i want to concatenate 3, then put the text inside a  <p> tag
-        const lastIndex = newsArray.length - 1
         let count = 1
         let concatString = ""
         for (let i = 0; i < newsArray.length; i++) {
@@ -63,13 +69,18 @@ const NewsSummary = ({ location }) => {
         }
         return combinedArray
     }
+    
+    const createPara = (text) => {
+        const para = document.createElement('p')
+        para.innerHTML = text + '<br/><br/>'
+        return para
+    }
 
     const createAllParaElements = () => {
         const combinedText = splitNewsContent()
-        const div = document.getElementsByClassName("full-article-container")[0]
+        const div = document.getElementById("full-article-container")
         for (let i = 0; i < combinedText.length; i++) {
-            const para = document.createElement('p')
-            para.innerHTML = combinedText[i] + '<br/><br/>'
+            const para = createPara(combinedText[i])
             div.appendChild(para)
         }
     }
@@ -92,9 +103,9 @@ const NewsSummary = ({ location }) => {
                     :
                     <section className="article-detail">
                         <h1 className="article-title">{location.state.newsTitle}</h1>
-                        <p className="article-content">{data.summary_text}</p><br />
+                        <p className="article-content-summary">{data.summary_text}</p><br />
                         <button className="submit-btn" onClick={toggleFullArticle}>View Full Article</button>
-                        <div className="full-article-container article-content hide"></div>
+                        <div id="full-article-container" className="article-content-full hide"></div>
                     </section>
             }
 
