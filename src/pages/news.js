@@ -12,7 +12,7 @@ const TopNews = () => {
 
     const fetchData = () => axios.get('http://127.0.0.1:7000/v1/articles')
         .then((response) => {
-            setData(response.data.channelnewsasia)
+            setData(response.data)
             setIsLoading(false)
         }, (error) => {
             console.log(error);
@@ -22,9 +22,10 @@ const TopNews = () => {
         fetchData()
     }, []);
 
-    const articleList = data.filter(article => article.content != "No text available").map(article =>
-        <Article article={article} />
-    )
+    const articleList = data
+        .filter(article => article.content !== "No text available")
+        .sort((article1, article2) => article2.title.length - article1.title.length)
+        .map(article => <Article article={article} />)
 
     return (
         <Layout>

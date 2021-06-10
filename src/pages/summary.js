@@ -27,7 +27,7 @@ const NewsSummary = ({ location }) => {
 
     const toggleFullArticle = () => {
         const newsDiv = document.getElementById("full-article-container")
-        const btn = document.getElementsByClassName("submit-btn")[0]
+        const btn = document.getElementsByClassName("remove-btn")[0]
         if (btn.innerHTML === "View Full Article") {
             btn.innerHTML = "Close Article"
         } else {
@@ -69,7 +69,7 @@ const NewsSummary = ({ location }) => {
         }
         return combinedArray
     }
-    
+
     const createPara = (text) => {
         const para = document.createElement('p')
         para.innerHTML = text + '<br/><br/>'
@@ -104,7 +104,9 @@ const NewsSummary = ({ location }) => {
                     <section className="article-detail">
                         <h1 className="article-title">{location.state.newsTitle}</h1>
                         <p className="article-content-summary">{data.summary_text}</p><br />
-                        <button className="submit-btn" onClick={toggleFullArticle}>View Full Article</button>
+                        <div className="btn-container">
+                            <button className="remove-btn" onClick={toggleFullArticle}>View Full Article</button>
+                        </div>
                         <div id="full-article-container" className="article-content-full hide"></div>
                     </section>
             }
