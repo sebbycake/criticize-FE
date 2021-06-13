@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
 
 .logo {
-    font-size: 16px;
-    font-family: 'Handlee', sans-serif;
+    font-size: 18px;
+    font-family: 'Arimo', sans-serif;
     margin-left: 80px;
 }
 
@@ -67,7 +68,7 @@ nav {
         position: absolute;
         left: 2px;
         margin-left: 20px;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .burger {
