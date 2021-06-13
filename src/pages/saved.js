@@ -5,9 +5,7 @@ import QuestionCard from "../components/question_card"
 
 const SavedQuestions = () => {
 
-  const windowGlobal = typeof window !== 'undefined' && window
-
-  let savedQuestions = JSON.parse(windowGlobal.localStorage.getItem('qnList'))
+  let savedQuestions = typeof window !== 'undefined' && JSON.parse(windowGlobal.localStorage.getItem('qnList'))
 
   if (savedQuestions !== null) {
     savedQuestions = savedQuestions.map(

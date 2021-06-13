@@ -37,7 +37,7 @@ const NewsSummary = ({ location }) => {
             createAllParaElements()
         }
         newsDiv.classList.toggle("hide")
-        window !== 'undefined' && window.scrollTo(300, 450)
+        typeof window !== 'undefined' && window.scrollTo(300, 450)
     }
 
     const splitNewsContent = () => {
