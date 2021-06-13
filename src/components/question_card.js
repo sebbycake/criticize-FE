@@ -4,17 +4,19 @@ import BookmarkBorderRoundedIcon from '@material-ui/icons/BookmarkBorderRounded'
 
 const QuestionCard = ({ question }) => {
 
+    const windowGlobal = typeof window !== 'undefined' && window
+
     const bookmarkQuestion = (qn) => {
-        const arr = JSON.parse(localStorage.getItem('qnList'))
+        const arr = JSON.parse(windowGlobal.localStorage.getItem('qnList'))
         if (arr === null) {
             const arrCopy = []
             arrCopy.push(qn)
-            localStorage.setItem("qnList", JSON.stringify(arrCopy))
+            windowGlobal.localStorage.setItem("qnList", JSON.stringify(arrCopy))
         } else {
             // clone the arr from LS
             const arrCopy = [...arr]
             arrCopy.push(qn)
-            localStorage.setItem("qnList", JSON.stringify(arrCopy))
+            windowGlobal.localStorage.setItem("qnList", JSON.stringify(arrCopy))
         }
     }
 
