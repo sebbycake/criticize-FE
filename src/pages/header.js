@@ -31,7 +31,7 @@ const Header = () => {
 
             <ul className="nav-links">
                 <li>
-                    <Link to="/news" onClick={handleNavBar}>Top Daily News</Link>
+                    <Link to="/news" onClick={handleNavBar}>Top Stories</Link>
                 </li>
                 <li>
                     <Link to="/saved" onClick={handleNavBar}>Saved</Link>

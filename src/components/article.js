@@ -7,6 +7,9 @@ const Article = ({ article }) => {
         if (article.publisher === "channelnewsasia") {
             return "CNA"
         }
+        if (article.publisher === "bbcnews") {
+            return "BBC"
+        }
     }
 
     return (
