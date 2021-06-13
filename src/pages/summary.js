@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Helmet } from "react-helmet"
 import Layout from "../components/layout"
 import Loading from "../components/loading"
+import SEO from "../components/seo"
 
 const NewsSummary = ({ location }) => {
 
@@ -88,9 +88,7 @@ const NewsSummary = ({ location }) => {
     return (
         <Layout>
 
-            <Helmet>
-                <title>Top Daily News | Criticize</title>
-            </Helmet>
+            <SEO title="Summary | Criticize" description={data.summary_text}/>
 
             <section className="index-section">
                 <h2 className="index-header">/summary</h2>

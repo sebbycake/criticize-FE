@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 import QuestionCard from "../components/question_card"
 
 const SavedQuestions = () => {
@@ -22,9 +22,7 @@ const SavedQuestions = () => {
   return (
     <Layout>
 
-      <Helmet>
-        <title>Saved | Criticize</title>
-      </Helmet>
+      <SEO title="Saved | Criticize" description="View your saved questions here."/>
 
       <section className="index-section">
         <h2 className="index-header">/saved</h2>

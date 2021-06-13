@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
-import { Helmet } from "react-helmet"
 import Loading from "../components/loading"
 import QuestionCard from "../components/question_card"
 
@@ -48,10 +47,6 @@ const IndexPage = () => {
 
   return (
     <Layout>
-
-      <Helmet>
-        <title>Criticize - Generate Critical Thinking Questions</title>
-      </Helmet>
 
       <section className="index-section">
         <h2 className="index-header">/generate</h2>
