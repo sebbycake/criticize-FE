@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Helmet } from "react-helmet"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import Loading from "../components/loading"
 import Article from "../components/article"
 
@@ -30,9 +30,7 @@ const TopNews = () => {
     return (
         <Layout>
 
-            <Helmet>
-                <title>Top Daily News | Criticize</title>
-            </Helmet>
+            <SEO title="Top Stories | Criticize" description="Check out top stories from various new sources."/>
 
             <section className="index-section">
                 <h2 className="index-header">/top daily news</h2>

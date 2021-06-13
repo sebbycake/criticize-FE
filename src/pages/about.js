@@ -1,14 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 import team from "../../static/images/team_spirit.png"
 
 const AboutPage = () => (
     <Layout>
 
-        <Helmet>
-            <title>About | Criticize</title>
-        </Helmet>
+        <SEO title="About | Criticize"/>
 
         <section className="outer-container">
 
