@@ -137,6 +137,7 @@ nav {
 
 .toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: #fff;
 }
 
 .toggle .line2 {
@@ -145,4 +146,5 @@ nav {
 
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
+    background-color: #fff;
 }
