@@ -5,9 +5,9 @@ import QuestionCard from "../components/question_card"
 
 const SavedQuestions = () => {
 
-  let savedQuestions = typeof window !== 'undefined' && JSON.parse(windowGlobal.localStorage.getItem('qnList'))
+  let savedQuestions = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('qnList'))
 
-  if (savedQuestions !== null) {
+  if (savedQuestions) {
     savedQuestions = savedQuestions.map(
       qn => <QuestionCard question={qn} />
     )

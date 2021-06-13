@@ -26,7 +26,7 @@ const Header = () => {
         // <!-- navigation bar -->
         <nav>
             <div className="logo">
-                <h1><Link to="http://localhost:8000/">Critical Thinking Machine</Link></h1>
+                <h1><Link to="https://criticize.netlify.app/">Critical Thinking Machine</Link></h1>
             </div>
 
             <ul className="nav-links">
