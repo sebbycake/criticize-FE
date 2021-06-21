@@ -24,7 +24,7 @@ const IndexPage = () => {
 
   const cleanText = (text) => text.replace(/['"]+/g, '')
 
-  const fetchData = (content) => axios.post('http://127.0.0.1:7000/v1/questions', {
+  const fetchData = (content) => axios.post(`${process.env.CRITICIZE_API_URL}/v1/questions`, {
     article: cleanText(content)
   })
     .then((response) => {

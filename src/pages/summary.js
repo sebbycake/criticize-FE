@@ -2,28 +2,46 @@ import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import Loading from "../components/loading"
 import SEO from "../components/seo"
+import Article from "../components/article"
+import axios from 'axios'
 
 const NewsSummary = ({ location }) => {
 
     const [data, setData] = useState({})
+    const [relatedArticles, setRelatedArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const axios = require('axios')
 
     const cleanText = (text) => text.replace(/['"]+/g, '')
 
-    const fetchData = () => axios.post('http://127.0.0.1:7000/v1/summary', {
-        article: cleanText(location.state.newsContent)
-    })
-        .then((response) => {
-            setData(response.data)
-            setIsLoading(false)
-        }, (error) => {
-            console.log(error);
-        });
+    const fetchAllData = () => {
+
+        const summaryAPI = `${process.env.CRITICIZE_API_URL}/v1/summary`
+        const relatedArticlesAPI = `${process.env.CRITICIZE_API_URL}/v1/related-articles`
+
+        const getSummary= axios.post(summaryAPI, {
+            article: cleanText(location.state.newsContent)
+        })
+
+        const getRelatedArticles = axios.post(relatedArticlesAPI, {
+            article_title: cleanText(location.state.newsTitle)
+        })
+
+        axios.all([getSummary, getRelatedArticles]).then(
+            axios.spread( (...allData) => {
+                const articleSummary = allData[0].data
+                const allRelatedArticles = allData[1].data
+                setData(articleSummary)
+                setRelatedArticles(allRelatedArticles)
+                setIsLoading(false)
+            })
+        )
+    }
 
     useEffect(() => {
-        fetchData();
+        fetchAllData()
     }, []);
+
+    const relatedArticleList = relatedArticles.map(article => <Article article={article} />)
 
     const toggleFullArticle = () => {
         const newsDiv = document.getElementById("full-article-container")
@@ -88,7 +106,7 @@ const NewsSummary = ({ location }) => {
     return (
         <Layout>
 
-            <SEO title="Summary | Criticize" description={data.summary_text}/>
+            <SEO title="Summary | Criticize" description={data.summary_text} />
 
             <section className="index-section">
                 <h2 className="index-header">/summary</h2>
@@ -106,6 +124,10 @@ const NewsSummary = ({ location }) => {
                             <button className="remove-btn" onClick={toggleFullArticle}>View Full Article</button>
                         </div>
                         <div id="full-article-container" className="article-content-full hide"></div>
+                        <div className="related-articles">
+                            <h3>You May Also Like</h3>
+                            {relatedArticleList}
+                        </div>
                     </section>
             }
 
