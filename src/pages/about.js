@@ -24,7 +24,7 @@ const AboutPage = () => (
                     <br/>
                     <br/>
                     <br/>
-                    Created by <u>Sebastian</u> x <u>Jia Rong</u>
+                    Created by <a href= "https://www.linkedin.com/in/sebastian-lee-329b45198" >Sebastian</a> x <a href= "https://www.linkedin.com/in/jiarong15">Jia Rong</a>
                 </p>
             </div>
 

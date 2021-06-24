@@ -78,6 +78,11 @@
 		-moz-animation: cssload-spin 2.5s infinite linear;
 }
 
+.loading-msg {
+	position: absolute;
+	left: calc(50% - 100px);
+	margin-top: 260px;
+}
 
 
 @keyframes cssload-spin {
