@@ -55,3 +55,12 @@ textarea:focus {
     }
 
 }
+
+@media (min-width:1440px) {
+
+    textarea {
+        height: 60vh;
+    }
+
+}
+   
