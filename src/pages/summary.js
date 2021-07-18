@@ -108,7 +108,7 @@ const NewsSummary = ({ location }) => {
 
             <SEO title="Summary | Criticize" description={data.summary_text} />
 
-            <section className="index-section">
+            <section className="index-container">
                 <h2 className="index-header">/summary</h2>
             </section>
 

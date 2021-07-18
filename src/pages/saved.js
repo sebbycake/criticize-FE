@@ -24,7 +24,7 @@ const SavedQuestions = () => {
 
       <SEO title="Saved | Criticize" description="View your saved questions here."/>
 
-      <section className="index-section">
+      <section className="index-container">
         <h2 className="index-header">/saved</h2>
         <p className="index-content">
           Your Saved Questions <br />
