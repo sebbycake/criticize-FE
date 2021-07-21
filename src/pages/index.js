@@ -32,9 +32,9 @@ const IndexPage = () => {
     article: cleanText(content)
   })
     .then((response) => {
-      console.log(response.data)
       const qn = JSON.parse(response.data.body).questions
-      setData([qn])
+      const qnArr = [{id:1, question: qn}]
+      setData(qnArr)
       updateStates(false)
     }, (error) => {
       console.log(error);
