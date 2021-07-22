@@ -28,27 +28,62 @@ const IndexPage = () => {
 
   const cleanText = (text) => text.replace(/['"]+/g, '')
 
-  const fetchData = (content) => axios.post(`${process.env.CRITICIZE_API_URL}/v1/questions`, {
-    article: cleanText(content)
-  })
-    .then((response) => {
-      const qn = JSON.parse(response.data.body).questions
-      const qnArr = [{id:1, question: qn}]
-      setData(qnArr)
-      updateStates(false)
-    }, (error) => {
-      console.log(error);
-    });
+  const textPartitionArr = text => text.split('\n\n').slice(0, 10)
+
+  const populateAxiosRequestsArr = textArr => {
+    const arr = []
+    for (let i = 0; i < textArr.length; i++) {
+      arr.push(axios.post(`${process.env.CRITICIZE_API_URL}/v1/questions`, { article: cleanText(textArr[i]) }))
+    }
+    return arr
+  }
+
+  // const retrieveAllQuestions = (array) => {
+  //   const arrayOfQns = []
+  //   for (let i = 0; i < array.length; i++) {
+  //     arrayOfQns.push(JSON.parse(array[i].body).questions)
+  //   }
+  //   return arrayOfQns
+  // }
+
+  // call multiple APIs asynchronously
+  const fetchAllData = (axiosArr) => {
+
+    axios.all(axiosArr).then(
+      axios.spread((...allData) => {
+        console.log(allData)
+        // const arr = retrieveAllQuestions(allData)
+        // setData(arr)
+        updateStates(false)
+      })
+    )
+  }
+
+  // const fetchData = (content) => axios.post(`${process.env.CRITICIZE_API_URL}/v1/questions`, {
+  //   article: cleanText(content)
+  // })
+  //   .then((response) => {
+  //     const qn = JSON.parse(response.data.body).questions
+  //     const qnArr = [{ id: 1, question: qn }]
+  //     setData(qnArr)
+  //     updateStates(false)
+  //   }, (error) => {
+  //     console.log(error);
+  //   });
 
   const handleSubmit = (event) => {
     event.preventDefault()
     removeElement()
     updateStates(true)
-    fetchData(event.target.content.value)
+    // fetchData(event.target.content.value)
+    const textArr = textPartitionArr(event.target.content.value)
+    const axiosArr = populateAxiosRequestsArr(textArr)
+    console.log(axiosArr)
+    fetchAllData(axiosArr)
   }
 
   const questionList = data.map(qn =>
-    <QuestionCard key={qn.id} question={qn.question} />
+    <QuestionCard question={qn} />
   )
 
   return (
