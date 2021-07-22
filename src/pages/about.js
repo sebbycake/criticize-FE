@@ -10,7 +10,7 @@ const AboutPage = () => (
 
         <section className="outer-container">
 
-            <div className="index-section">
+            <div className="index-container">
                 <h2 className="index-header">/about</h2>
                 <p className="index-content">
                     Launched in 2021, with the simple goal to enhance humans' critical thinking abilities.

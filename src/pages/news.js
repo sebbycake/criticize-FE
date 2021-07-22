@@ -32,7 +32,7 @@ const TopNews = () => {
 
             <SEO title="Top Stories | Criticize" description="Check out top stories from various new sources."/>
 
-            <section className="index-section">
+            <section className="index-container">
                 <h2 className="index-header">/top stories</h2>
             </section>
 
