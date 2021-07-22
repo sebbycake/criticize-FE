@@ -38,13 +38,13 @@ const IndexPage = () => {
     return arr
   }
 
-  // const retrieveAllQuestions = (array) => {
-  //   const arrayOfQns = []
-  //   for (let i = 0; i < array.length; i++) {
-  //     arrayOfQns.push(JSON.parse(array[i].body).questions)
-  //   }
-  //   return arrayOfQns
-  // }
+  const retrieveAllQuestions = (array) => {
+    const arrayOfQns = []
+    for (let i = 0; i < array.length; i++) {
+      arrayOfQns.push(JSON.parse(array[i].data.body).questions)
+    }
+    return arrayOfQns
+  }
 
   // call multiple APIs asynchronously
   const fetchAllData = (axiosArr) => {
@@ -52,8 +52,8 @@ const IndexPage = () => {
     axios.all(axiosArr).then(
       axios.spread((...allData) => {
         console.log(allData)
-        // const arr = retrieveAllQuestions(allData)
-        // setData(arr)
+        const arr = retrieveAllQuestions(allData)
+        setData(arr)
         updateStates(false)
       })
     )
