@@ -21,14 +21,16 @@ const IndexPage = () => {
     formSection.remove()
   }
 
-  const updateStates = (bool) => {
+  const updateStates = bool => {
     setIsLoading(bool)
     setIsSubmitted(bool)
   }
 
-  const cleanText = (text) => text.replace(/['"]+/g, '')
+  // remove double quotation marks
+  const cleanText = text => text.replace(/['"]+/g, '')
 
-  const textPartitionArr = text => text.split('\n\n').slice(0, 10)
+  // split paragraphs
+  const textPartitionArr = text => text.split('\n\n')
 
   const populateAxiosRequestsArr = textArr => {
     const arr = []
@@ -38,7 +40,7 @@ const IndexPage = () => {
     return arr
   }
 
-  const retrieveAllQuestions = (array) => {
+  const retrieveAllQuestions = array => {
     const arrayOfQns = []
     for (let i = 0; i < array.length; i++) {
       arrayOfQns.push(JSON.parse(array[i].data.body).questions)
@@ -47,11 +49,10 @@ const IndexPage = () => {
   }
 
   // call multiple APIs asynchronously
-  const fetchAllData = (axiosArr) => {
+  const fetchAllData = axiosArr => {
 
     axios.all(axiosArr).then(
       axios.spread((...allData) => {
-        console.log(allData)
         const arr = retrieveAllQuestions(allData)
         setData(arr)
         updateStates(false)
@@ -59,26 +60,12 @@ const IndexPage = () => {
     )
   }
 
-  // const fetchData = (content) => axios.post(`${process.env.CRITICIZE_API_URL}/v1/questions`, {
-  //   article: cleanText(content)
-  // })
-  //   .then((response) => {
-  //     const qn = JSON.parse(response.data.body).questions
-  //     const qnArr = [{ id: 1, question: qn }]
-  //     setData(qnArr)
-  //     updateStates(false)
-  //   }, (error) => {
-  //     console.log(error);
-  //   });
-
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault()
     removeElement()
     updateStates(true)
-    // fetchData(event.target.content.value)
     const textArr = textPartitionArr(event.target.content.value)
     const axiosArr = populateAxiosRequestsArr(textArr)
-    console.log(axiosArr)
     fetchAllData(axiosArr)
   }
 
