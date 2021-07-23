@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .landing-section {
@@ -65,16 +66,12 @@
     color: #fff;
 }
 
-.form-section {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
-
 .index-header {
-    color: #4438f5;
+    /* color: #4438f5; */
+    color: #665df5;
     font-weight: 700;
-    margin-bottom: 12px;
     font-size: 20px;
+    margin-bottom: 12px;
 }
 
 .index-container {
@@ -83,7 +80,6 @@
 }
 
 .index-content {
-    font-family: Muli,sans-serif;
     font-size: 16px;
     color: #505050;
     text-rendering: optimizeLegibility;
