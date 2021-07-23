@@ -9,7 +9,7 @@ const SavedQuestions = () => {
 
   if (savedQuestions) {
     savedQuestions = savedQuestions.map(
-      qn => <QuestionCard question={qn} />
+      qn => <QuestionCard question={qn} isHeartNeeded={false}/>
     )
   }
 

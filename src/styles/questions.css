@@ -28,7 +28,7 @@
 }
 
 .bookmark-btn:hover {
-    background-color: #170da3cb;
+    /* background-color: #170da3cb; */
     border-radius: 4px;
     height: 25px;
 }
