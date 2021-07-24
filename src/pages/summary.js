@@ -18,19 +18,19 @@ const NewsSummary = ({ location }) => {
         const summaryAPI = `${process.env.CRITICIZE_API_URL}/v1/summary`
         const relatedArticlesAPI = `${process.env.CRITICIZE_API_URL}/v1/related-articles`
 
-        const getSummary= axios.post(summaryAPI, {
-            article: cleanText(location.state.newsContent)
-        })
+        // const getSummary= axios.post(summaryAPI, {
+        //     article: cleanText(location.state.newsContent)
+        // })
 
         const getRelatedArticles = axios.post(relatedArticlesAPI, {
             article_title: cleanText(location.state.newsTitle)
         })
 
-        axios.all([getSummary, getRelatedArticles]).then(
+        axios.all([getRelatedArticles]).then(
             axios.spread( (...allData) => {
-                const articleSummary = JSON.parse(allData[0].data.body)
-                const allRelatedArticles = allData[1].data
-                setData(articleSummary)
+                // const articleSummary = JSON.parse(allData[0].data.body)
+                const allRelatedArticles = allData[0].data
+                // setData(articleSummary)
                 setRelatedArticles(allRelatedArticles)
                 setIsLoading(false)
             })
@@ -106,7 +106,7 @@ const NewsSummary = ({ location }) => {
     return (
         <Layout>
 
-            <SEO title="Summary | Criticize" description={data.summarized_text} />
+            {/* <SEO title="Summary | Criticize" description={data.summary_text} /> */}
 
             <section className="index-container">
                 <h2 className="index-header">/summary</h2>
@@ -119,7 +119,7 @@ const NewsSummary = ({ location }) => {
                     :
                     <section className="article-detail">
                         <h1 className="article-title">{location.state.newsTitle}</h1>
-                        <p className="article-content-summary">{data.summarized_text}</p><br />
+                        {/* <p className="article-content-summary">{data.summary_text}</p><br /> */}
                         <div className="btn-container">
                             <button className="remove-btn" onClick={toggleFullArticle}>View Full Article</button>
                         </div>
