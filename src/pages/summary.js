@@ -28,7 +28,7 @@ const NewsSummary = ({ location }) => {
 
         axios.all([getSummary, getRelatedArticles]).then(
             axios.spread( (...allData) => {
-                const articleSummary = allData[0].data
+                const articleSummary = JSON.parse(allData[0].data.body)
                 const allRelatedArticles = allData[1].data
                 setData(articleSummary)
                 setRelatedArticles(allRelatedArticles)
@@ -106,7 +106,7 @@ const NewsSummary = ({ location }) => {
     return (
         <Layout>
 
-            <SEO title="Summary | Criticize" description={data.summary_text} />
+            <SEO title="Summary | Criticize" description={data.summarized_text} />
 
             <section className="index-container">
                 <h2 className="index-header">/summary</h2>
@@ -119,7 +119,7 @@ const NewsSummary = ({ location }) => {
                     :
                     <section className="article-detail">
                         <h1 className="article-title">{location.state.newsTitle}</h1>
-                        <p className="article-content-summary">{data.summary_text}</p><br />
+                        <p className="article-content-summary">{data.summarized_text}</p><br />
                         <div className="btn-container">
                             <button className="remove-btn" onClick={toggleFullArticle}>View Full Article</button>
                         </div>
